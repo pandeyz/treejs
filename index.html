@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>TreeJS - Documentation</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- ============ Font css ============ -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,700,500" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- ============ //Font css ============ -->
+    <!-- ============ core css ============ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="doc_style.css">
+    <!-- ============ //core css ============ -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')-->
+
+    <script type="text/javascript" src="treejs.js"></script>
+    <link rel="stylesheet" type="text/css" href="treejs.css">
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        var jsonObj = {"4":{"parentNodeId":"4","parentNodeTxt":"product","childNodes":[{"id":"5","name":"product-create"},
+{"id":"6","name":"product-update"}]},"9":{"parentNodeId":"9","parentNodeTxt":"file","childNodes":[{"id":"5","name":"product-create"},
+{"id":"6","name":"product-update"}]}};
+
+        $("#tree").treejs({
+            sourceType  : 'json',
+            dataSource  : jsonObj,
+            initialState: 'open'
+        });
+
+    });
+    </script>
+
+    <style type="text/css">
+    pre {
+        
+        white-space: pre-line;
+    }
+    </style>
+
+</head>
+<body>
+    <!-- DOCUMENTATION START -->
+    <section class="bg_dark_gray">
+        <div class="container">
+            <div class="filter">
+                <h3 class="md_pad color">TreeJS - A Jquery tree Plug-in</h3>
+            </div>
+        </div>
+    </section>
+    <section class="md_pad">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 clearfix">
+                    <div class="full_wdth clearfix">
+                        <div class="col-lg-2 col-md-2 col-sm-4" style="position: fixed; left: 0px; top: auto;">
+                            <div class="campaignNavForm broderCl pad_full clearfix bg_gray">
+                                <h4 class="pad_full bg_teal color">Important Links</h4>
+                                <ul class="sideFilter">
+                                    <li><a href="#overview">Overview</a></li>
+                                    <li><a href="#configuration">Configuration</a></li>
+                                    <li><a href="#demo">Demo</a></li>
+                                    <li><a href="#html">HTML data</a></li>
+                                    <li><a href="#json">JSON data</a></li>
+                                    <li><a href="#events">Events Handling</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-8 pull-right">
+                            <div class="campaignNavForm broderCl pad_full clearfix">
+                                <h4 class="pad_full bg_teal color"><a id="overview"></a>Overview - What is TreeJS?</h4>
+                                <div class="full_wdth md_pad">
+                                    <p>
+                                        Treejs is a light weight jquery plugin, that provides interactive trees to show data in Tree structure. It is absolutely free, open source. Treejs is easily extendable, and configurable, it supports HTML & JSON data sources and AJAX loading as well.
+                                    </p>
+                                    <p>
+                                        It is based on jQuery's event system, so binding callbacks on various events in the tree is possible in a very easy manner. You can easily configure it and get the checked / unchecked nodes of tree on parent, child level.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="campaignNavForm broderCl pad_full clearfix sm_mar">
+                                <h4 class="pad_full bg_teal color"><a id="configuration"></a>Configuration</h4>
+                                <div class="full_wdth md_pad">
+                                    <p>
+                                        You can initialize TreeJS by using the below code:
+
+                                        <div class="col-lg-3">
+                                            <pre>
+                                            $("#tree").treejs({
+                                                &nbsp;&nbsp;&nbsp;&nbsp;key : value
+                                            });
+                                            </pre>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="campaignNavForm broderCl pad_full clearfix sm_mar">
+                                <h4 class="pad_full bg_teal color"><a id="demo"></a>Demo</h4>
+                                <div class="full_wdth md_pad">
+                                    <!-- Demo -->
+                                        <div id="tree" class="tree"></div>
+                                </div>
+                            </div>
+                            <div class="campaignNavForm broderCl pad_full clearfix sm_mar">
+                                <h4 class="pad_full bg_teal color">HTML data</h4>
+                                <div class="full_wdth md_pad">
+                                    <p>
+                                        You can initialize TreeJS by using the below code:
+
+                                        <div class="col-lg-4">
+                                            <pre>
+                                            $("#tree").treejs({
+                                                &nbsp;&nbsp;&nbsp;&nbsp;url      : 'treejs_data.php',
+                                                &nbsp;&nbsp;&nbsp;&nbsp;sourceType  : 'html'
+                                            });
+                                            </pre>
+
+                                            Where <code>url</code> is the <code>url</code> for the <code>ajax()</code> call
+                                        </div>
+                                    </p>
+                                </div>
+                            </div> <!-- // Repeat Only This Div For More Description Content -->
+                            <div class="campaignNavForm broderCl pad_full clearfix sm_mar">
+                                <h4 class="pad_full bg_teal color"><a id="json"></a>JSON data</h4>
+                                <div class="full_wdth md_pad">
+                                    <p>
+                                        You can initialize TreeJS by using the below code:
+
+                                        <div class="col-lg-4">
+                                            <pre>
+                                            $("#tree").treejs({
+                                                &nbsp;&nbsp;&nbsp;&nbsp;sourceType  : 'json',
+                                                &nbsp;&nbsp;&nbsp;&nbsp;dataSource  : jsonObj
+                                            });
+                                            </pre>
+
+                                            Where <code>jsonObj</code> is a JSON Object.
+                                        </div>
+                                    </p>
+                                </div>
+                            </div> <!-- // Repeat Only This Div For More Description Content -->
+                            <div class="campaignNavForm broderCl pad_full clearfix sm_mar">
+                                <h4 class="pad_full bg_teal color"><a id="events"></a>Events Handling</h4>
+                                <div class="full_wdth">
+
+                                    <div class="col-lg-12">
+                                        <h5 class="pad_full bg_soft mar_left">Get all cheked parent nodes:</h5>
+                                        <div class="col-lg-5">
+                                            <pre>
+                                                $("#tree").getCheckedParentNodes();
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <h5 class="pad_full bg_soft mar_left">Get all un-cheked parent nodes:</h5>
+                                        <div class="col-lg-5">
+                                            <pre>
+                                                $("#tree").getUncheckedParentNodes();
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <h5 class="pad_full bg_soft mar_left">Get all cheked child nodes:</h5>
+                                        <div class="col-lg-5">
+                                            <pre>
+                                                $("#tree").getCheckedChildNodes();
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <h5 class="pad_full bg_soft mar_left">Get all un-cheked child nodes:</h5>
+                                        <div class="col-lg-5">
+                                            <pre>
+                                                $("#tree").getUncheckedChildNodes();
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <h5 class="pad_full bg_soft mar_left">Refresh tree:</h5>
+                                        <div class="col-lg-5">
+                                            <pre>
+                                                $("#tree").refresh();
+                                            </pre>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div> <!-- // Repeat Only This Div For More Description Content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- DOCUMENTATION END -->
+    <!-- FOOTER START -->
+    <footer class="full_wdth">
+        <section class="bg_dark md_pad">
+            <div class="container">
+                <div class="row">
+                    <div class="social">
+                        <h6>Follow Us</h6>
+                        <ul>
+                            <li><a href="https://github.com/pandeyz"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+                            <li><a href="http://stackoverflow.com/users/5921745/mayank-pandeyz"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <p class="copyright">Mayank Pandey - TreeJS Plug-in</p>
+    </footer>
+    <!-- FOOTER END -->
+</body>
+</html>

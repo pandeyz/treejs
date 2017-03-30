@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TreeJS Plugin</title>
+	<meta charset="UTF-8">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-git.js"></script>
+	
+	<script type="text/javascript" src="treejs.js"></script>
+	<link rel="stylesheet" type="text/css" href="treejs.css">
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+        var jsonObj = {"4":{"parentNodeId":"4","parentNodeTxt":"product","childNodes":[{"id":"5","name":"product-create"},
+{"id":"6","name":"product-update"},{"id":"7","name":"product-delete"},{"id":"8","name":"product-view"
+}]},"9":{"parentNodeId":"9","parentNodeTxt":"file","childNodes":[{"id":"5","name":"product-create"},
+{"id":"6","name":"product-update"},{"id":"7","name":"product-delete"},{"id":"8","name":"product-view"
+},{"id":"10","name":"file-create"},{"id":"11","name":"file-update"},{"id":"12","name":"file-delete"}
+,{"id":"13","name":"file-view"}]}};
+
+        // JSON example working
+		/*$("#tree").treejs({
+			// url 		: 'treejs_data.php',
+			sourceType 	: 'json',    // html, json
+            dataSource  : jsonObj,
+			initialState: 'open',    // open, close
+		});*/
+
+        // Html example
+        $("#tree").treejs({
+            url      : 'treejs_data.php',
+            sourceType  : 'html',    // html, json
+            initialState: 'open',    // open, close
+        });
+
+        // To refresh tree_data
+        $('#refresh_tree').click(function(){
+            $("#tree").refresh();
+        });
+
+        // To get Parent/Child : Checked/Unchecked Nodes
+        // $("#tree").getCheckedParentNodes()
+        // $("#tree").getUncheckedParentNodes()
+        // $("#tree").getCheckedChildNodes()
+        // $("#tree").getUncheckedChildNodes()
+
+	});
+	</script>
+</head>
+<body>
+	
+	<div id="tree" class="tree">
+		<!-- Dynamic Content -->
+	</div>
+
+
+    <input type="button" id="refresh_tree" value="Refresh">
+
+</body>
+</html>
