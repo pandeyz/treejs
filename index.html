@@ -35,6 +35,11 @@
             initialState: 'open'
         });
 
+        // To check JSON format
+        $('#check_json_format').click(function(){
+            $('#json_format_container').toggle();
+        });
+
     });
     </script>
 
@@ -123,7 +128,9 @@
                                             });
                                             </pre>
 
-                                            Where <code>url</code> is the <code>url</code> for the <code>ajax()</code> call
+                                            Where <code>url</code> is the <code>url</code> for the <code>ajax()</code> call.
+                                            <br>
+                                            <a href="https://github.com/pandeyz/treejs/blob/master/treejs_data.php">Click here to check the Html format</a>
                                         </div>
                                     </p>
                                 </div>
@@ -142,7 +149,40 @@
                                             });
                                             </pre>
 
-                                            Where <code>jsonObj</code> is a JSON Object.
+                                            Where <code>jsonObj</code> is a JSON Object. <br>
+                                            <a href="javascript:void(0);" id="check_json_format">Click here to check the JSON format</a>
+                                            <p id="json_format_container" style="display: none;">
+                                                var jsonObj ={
+                                                   "4":{
+                                                      "parentNodeId":"4",
+                                                      "parentNodeTxt":"product",
+                                                      "childNodes":[
+                                                         {
+                                                            "id":"5",
+                                                            "name":"product-create"
+                                                         },
+                                                         {
+                                                            "id":"6",
+                                                            "name":"product-update"
+                                                         }
+                                                      ]
+                                                   },
+                                                   "9":{
+                                                      "parentNodeId":"9",
+                                                      "parentNodeTxt":"file",
+                                                      "childNodes":[
+                                                         {
+                                                            "id":"5",
+                                                            "name":"product-create"
+                                                         },
+                                                         {
+                                                            "id":"6",
+                                                            "name":"product-update"
+                                                         }
+                                                      ]
+                                                   }
+                                                };
+                                            </p>
                                         </div>
                                     </p>
                                 </div>
